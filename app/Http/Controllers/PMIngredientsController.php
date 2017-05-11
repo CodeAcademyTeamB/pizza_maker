@@ -14,7 +14,11 @@ class PMIngredientsController extends BaseAPIController {
 	public function adminIndex()
 	{
 		$config ['list'] = PMIngredients::get()->toArray();
-       return view ('admin.list', $config);
+		$config ['edit']= 'app.ingredients.adminEdit';
+		$config ['delete']= 'app.ingredients.adminDelete';
+
+
+        return view ('admin.list', $config);
 	}
 
 	/**

@@ -2,6 +2,8 @@
 
 
 
+use App\Models\PMCheese;
+
 class PMCheeseController extends BaseAPIController {
 
 	/**
@@ -10,9 +12,10 @@ class PMCheeseController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+        $config ['list'] = PMCheese::get()->toArray();
+        return view ('admin.list', $config);
 	}
 
 	/**
@@ -23,7 +26,7 @@ class PMCheeseController extends BaseAPIController {
 	 */
 	public function adminCreate()
 	{
-		//
+
 	}
 
 	/**

@@ -50,10 +50,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/create', ['as' => 'app.ingredients.adminCreate', 'uses' => 'PMIngredientsController@adminStore']);
 
         Route::group(['prefix' => '{id}'], function () {
+
             Route::get('/', ['uses' => 'PMIngredientsController@adminShow']);
+            Route::delete('/', ['as' => 'app.ingredients.adminDelete', 'uses' => 'PMIngredientsController@adminDestroy']);
+
             Route::get('/edit', ['as' => 'app.ingredients.adminEdit', 'uses' => 'PMIngredientsController@adminEdit']);
             Route::post('/edit', ['uses' => 'PMIngredientsController@adminUpdate']);
-            Route::delete('/', ['as' => 'app.ingredients.adminDelete', 'uses' => 'PMIngredientsController@adminDestroy']);
         });
     });
     Route::group(['prefix' => 'pad'], function () {
