@@ -9,7 +9,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
 		//
 	}
@@ -20,7 +20,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -31,7 +31,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -43,7 +43,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -55,7 +55,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -67,7 +67,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -79,7 +79,7 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
 		//
 	}
