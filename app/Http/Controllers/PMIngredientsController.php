@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Models\PMIngredients;
+
 class PMIngredientsController extends BaseAPIController {
 
 	/**
@@ -11,7 +13,8 @@ class PMIngredientsController extends BaseAPIController {
 	 */
 	public function adminIndex()
 	{
-		//
+		$config ['list'] = PMIngredients::get()->toArray();
+       return view ('admin.list', $config);
 	}
 
 	/**

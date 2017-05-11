@@ -9,9 +9,14 @@ class PMPizzaOrderController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
+    public function index()
+    {
+       return view ('front-end.single');
+    }
+
 	public function adminIndex()
 	{
-		//
+        return view ('admin.single');
 	}
 
 	/**
@@ -43,9 +48,16 @@ class PMPizzaOrderController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+    public function show($id)
+    {
+        return view ('front-end.list');
+    }
+
+
+
 	public function adminShow($id)
 	{
-		//
+        return view ('admin.list');
 	}
 
 	/**
