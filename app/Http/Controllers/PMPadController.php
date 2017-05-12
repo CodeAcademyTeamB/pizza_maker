@@ -85,7 +85,8 @@ class PMPadController extends BaseAPIController {
 	 */
 	public function adminDestroy($id)
 	{
-		//
+        PMPad::destroy($id);
+        return PMPad::get()->toArray();
 	}
 
 }

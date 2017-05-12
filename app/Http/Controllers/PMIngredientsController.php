@@ -16,7 +16,7 @@ class PMIngredientsController extends BaseAPIController {
 		$config ['list'] = PMIngredients::get()->toArray();
 		$config ['edit']= 'app.ingredients.adminEdit';
 		$config ['delete']= 'app.ingredients.adminDelete';
-
+//dd($config);
 
         return view ('admin.list', $config);
 	}
@@ -52,7 +52,10 @@ class PMIngredientsController extends BaseAPIController {
 	 */
 	public function adminShow($id)
 	{
-		//
+
+        $config['item'] = PMIngredients::find($id)->toArray();
+//dd($config);
+                return view ('admin.single',$config);
 	}
 
 	/**
@@ -64,7 +67,7 @@ class PMIngredientsController extends BaseAPIController {
 	 */
 	public function adminEdit($id)
 	{
-		//
+
 	}
 
 	/**
@@ -88,7 +91,8 @@ class PMIngredientsController extends BaseAPIController {
 	 */
 	public function adminDestroy($id)
 	{
-		//
+        PMIngredients::destroy($id);
+        return PMIngredients::get()->toArray(); //pabandymui paduota lentele kad padarytu json faila ir ajax mestu message success
 	}
 
 }

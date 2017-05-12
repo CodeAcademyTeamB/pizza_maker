@@ -85,7 +85,8 @@ class PMCheeseController extends BaseAPIController {
 	 */
 	public function adminDestroy($id)
 	{
-		//
+        PMCheese::destroy($id);
+        return PMCheese::get()->toArray();
 	}
 
 }

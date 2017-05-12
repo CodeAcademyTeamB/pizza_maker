@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Title of the document</title>
-</head>
+@extends ('admin.main')
 
-<body>
+@section ('admin.single')
 <h2>admin single blade </h2>
-</body>
+<div class="container">
+    <h2>Table</h2>
+        <table class="table table-hover">
+@foreach  ($item as $key => $value)
+    <th> {{$key}}</th>
 
-</html>
+        <tr><td> {{$value}}</td>
+
+            @endforeach
+        </tr>
+        </table>
+</div>
+
+</thead>
+
+
+
