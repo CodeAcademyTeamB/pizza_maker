@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Models\PMIngredients;
+
 class PMIngredientsController extends BaseAPIController {
 
 	/**
@@ -9,9 +11,24 @@ class PMIngredientsController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getRoutesData(){
+	    $config = [];
+        $config ['index'] = 'app.ingredients.adminIndex';
+        $config ['create'] = 'app.ingredients.adminCreate';
+        $config ['edit'] = 'app.ingredients.adminEdit';
+        $config ['delete'] = 'app.ingredients.adminDelete';
+
+        return $config;
+    }
+
+	public function adminIndex()
 	{
-		//
+	    $config = $this->getRoutesData();
+		$config ['list'] = PMIngredients::get()->toArray();
+
+//dd($config);
+
+        return view ('admin.list', $config);
 	}
 
 	/**
@@ -20,7 +37,7 @@ class PMIngredientsController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -31,7 +48,7 @@ class PMIngredientsController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -43,9 +60,13 @@ class PMIngredientsController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
-		//
+
+        $config = $this->getRoutesData();
+        $config['item'] = PMIngredients::find($id)->toArray();
+//dd($config);
+              return view ('admin.single',$config);
 	}
 
 	/**
@@ -55,9 +76,9 @@ class PMIngredientsController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
-		//
+
 	}
 
 	/**
@@ -67,7 +88,7 @@ class PMIngredientsController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -79,9 +100,10 @@ class PMIngredientsController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
-		//
+        PMIngredients::destroy($id);
+        return PMIngredients::get()->toArray(); //pabandymui paduota lentele kad padarytu json faila ir ajax mestu message success
 	}
 
 }

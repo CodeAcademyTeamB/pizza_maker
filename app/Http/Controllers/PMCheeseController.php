@@ -2,6 +2,8 @@
 
 
 
+use App\Models\PMCheese;
+
 class PMCheeseController extends BaseAPIController {
 
 	/**
@@ -10,9 +12,10 @@ class PMCheeseController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+        $config ['list'] = PMCheese::get()->toArray();
+        return view ('admin.list', $config);
 	}
 
 	/**
@@ -21,9 +24,9 @@ class PMCheeseController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
-		//
+
 	}
 
 	/**
@@ -32,7 +35,7 @@ class PMCheeseController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -44,7 +47,7 @@ class PMCheeseController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -56,7 +59,7 @@ class PMCheeseController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -68,7 +71,7 @@ class PMCheeseController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -80,9 +83,10 @@ class PMCheeseController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
-		//
+        PMCheese::destroy($id);
+        return PMCheese::get()->toArray();
 	}
 
 }

@@ -2,6 +2,8 @@
 
 
 
+use App\Models\PMPad;
+
 class PMPadController extends BaseAPIController {
 
 	/**
@@ -10,9 +12,10 @@ class PMPadController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function adminIndex()
 	{
-		//
+        $config ['list'] = PMPad::get()->toArray();
+        return view ('admin.list', $config);
 	}
 
 	/**
@@ -21,7 +24,7 @@ class PMPadController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function adminCreate()
 	{
 		//
 	}
@@ -32,7 +35,7 @@ class PMPadController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function adminStore()
 	{
 		//
 	}
@@ -44,7 +47,7 @@ class PMPadController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function adminShow($id)
 	{
 		//
 	}
@@ -56,7 +59,7 @@ class PMPadController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function adminEdit($id)
 	{
 		//
 	}
@@ -68,7 +71,7 @@ class PMPadController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function adminUpdate($id)
 	{
 		//
 	}
@@ -80,9 +83,10 @@ class PMPadController extends BaseAPIController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function adminDestroy($id)
 	{
-		//
+        PMPad::destroy($id);
+        return PMPad::get()->toArray();
 	}
 
 }
