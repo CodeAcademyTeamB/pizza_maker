@@ -17,6 +17,7 @@
 
 <body>
 @yield('admin.list')
+@yield('admin.single')
 @yield('script')
 
 
