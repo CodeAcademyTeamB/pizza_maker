@@ -11,11 +11,21 @@ class PMIngredientsController extends BaseAPIController {
 	 *
 	 * @return Response
 	 */
+	public function getRoutesData(){
+	    $config = [];
+        $config ['index'] = 'app.ingredients.adminIndex';
+        $config ['create'] = 'app.ingredients.adminCreate';
+        $config ['edit'] = 'app.ingredients.adminEdit';
+        $config ['delete'] = 'app.ingredients.adminDelete';
+
+        return $config;
+    }
+
 	public function adminIndex()
 	{
+	    $config = $this->getRoutesData();
 		$config ['list'] = PMIngredients::get()->toArray();
-		$config ['edit']= 'app.ingredients.adminEdit';
-		$config ['delete']= 'app.ingredients.adminDelete';
+
 //dd($config);
 
         return view ('admin.list', $config);
@@ -53,9 +63,10 @@ class PMIngredientsController extends BaseAPIController {
 	public function adminShow($id)
 	{
 
+        $config = $this->getRoutesData();
         $config['item'] = PMIngredients::find($id)->toArray();
 //dd($config);
-                return view ('admin.single',$config);
+              return view ('admin.single',$config);
 	}
 
 	/**
